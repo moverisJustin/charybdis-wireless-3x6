@@ -1,6 +1,14 @@
 # Charybdis Wireless (3x6 aka Mini) Guide
 ![wireless charybdis](./images/DSC08373.jpg "My build")
 
+# Justin's Project Notes
+
+I am relying on multiple existing guides to help with this work. They include:
+1. This repo fork which originated here from @erenatas: https://github.com/erenatas/charybdis-wireless-3x6
+2. This helpful guide from @280Zo: https://github.com/280Zo/charybdis-wireless-mini-3x6-build-guide/tree/main?tab=readme-ov-file
+3. The official BastardKB guide which relies on several of these: https://docs.bastardkb.com/help/bluetooth.html#3d-prints
+4. This Youtube video that got me started on this entire idea of a wireless, endgame Charybdis: https://www.youtube.com/watch?v=Mks7QDxFreY
+
 #### Table of contents
 * [Before we begin](#before-we-begin)
 * [Disclaimer](#disclaimer)
