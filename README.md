@@ -9,6 +9,7 @@ I am relying on multiple existing guides to help with this work. They include:
 3. The official BastardKB guide which relies on several of these: https://docs.bastardkb.com/help/bluetooth.html#3d-prints
 4. This Youtube video that got me started on this entire idea of a wireless, endgame Charybdis: https://www.youtube.com/watch?v=Mks7QDxFreY
 
+
 #### Table of contents
 * [Before we begin](#before-we-begin)
 * [Disclaimer](#disclaimer)
@@ -22,15 +23,14 @@ I am relying on multiple existing guides to help with this work. They include:
 
 The Charybdis was created and designed by [Bastard Keyboards](https://bastardkb.com/) so I take no credit in the creation or design. To learn more about the Charybdis itself, read about it on [Charybdis Github](https://github.com/Bastardkb/Charybdis) repo. 
 
-The purpose of this guide is mainly to take a note on what I have done to building a Wireless (Bluetooth) Charybdis, since there is almost no written guide when it comes to building a Wireless Charybdis. I am going to build a 3x6 Charybdis Mini, therefore my guide will be specifically for that. If you are planning to build Charybdis Nano (or add a rotary knob), etc.. Please fork and tweak it as you like (with reference please).
+The purpose of this guide is mainly to take a note on what I have done to building a Wireless (Bluetooth) Charybdis, since there are only a few guides out there and many of them seem to be written by MUCH smarter people than me. I am going to build a 3x6 Charybdis Mini with the goal of having a Prospector dongle with it, therefore my guide will be specifically for that.
 
 **Important notes:**
-- As of writing this setup does not support RGB LEDs.
 
 - The necessary files for PCBs and 3D files are scattered across Github, I will be referring to the each file specifically in this guide.
 
 # Disclaimer 
-**Follow at your own risk**, I am not liable for anything that does not work. If you are unsure of something I would suggest you stop by the Bastard Keyboards discord if you have questions. 
+**Follow at your own risk**, I am not liable for anything that does not work. If you are unsure of something I would suggest you stop by the Bastard Keyboards discord if you have questions. This is not really meant to be a complete step-by-step list. It is, however, meant as a way for me to document what was odd or hard for me as I followed a collection of other resources.
 
 # Build Guide
 
@@ -39,6 +39,8 @@ The purpose of this guide is mainly to take a note on what I have done to buildi
 I have ordered PCBs from JLCPCB.
 
 For PCBs, most important part is, thumb parts needs to be thinner than usual. For building a nano or mini 0.8mm is enough, but for a full size, 0.6mm is recommended as flexibility is required. I did not change rest of the settings for other parts.
+
+If possible, I would have preferred to have ordered thinner boards for the main parts as well. That would have made attaching the board to the switches much easier. It would have also have made it possible (maybe?) to use hot swap sockets.
 
 #### PMW3610 Breakout
 [Link to Void's repo](https://github.com/victorlucachi/charybdis-pmw3610-breakout/tree/nicenano/production)
@@ -50,7 +52,6 @@ For the assembly, JLCPCB did not have `TCR2EF19`, which I replaced it with `TLV7
 #(Old) TCR2EF19:
 73dB@(1kHz) 200mA Fixed 1.9V Positive 5.5V SOT-23-5 Linear Voltage Regulators (LDO) ROHS
 
-
 #(New) TLV70018DDCR:
 68dB@(1kHz) 200mA Fixed 1.8V Positive 5.5V SOT-23-5 Linear Voltage Regulators (LDO) ROHS
 ```
@@ -58,7 +59,7 @@ For the assembly, JLCPCB did not have `TCR2EF19`, which I replaced it with `TLV7
 #### Nice!Nano Holder
 [Link to olidacombe's repo](https://github.com/olidacombe/Elite-C-holder/tree/nicenano/adapter/production)
 
-This PCB Design supports having a power switch that makes use of audio jack hole.
+This PCB Design supports having a power switch that makes use of audio jack hole. Mine did not end up using the audio jack. Instead, the switch sits inside of the case and you reach in to use it. Frankly, it is not clear to me which direction is "on" and which is "off" between the two boards. I believe both of them have "on" when the switch is pulled to the center of the two boards (if they are on my desk). When I eventually get the prospector to work correclty, I think this will be easier. I also want to look into adding a small LED to the inside of the case that can indicate if it is on, if it is connected, etc.
 
 #### PCB Thumbs
 [Link to PCB thumbs](https://github.com/Bastardkb/Charybdis-PCB-thumbs/releases/tag/2.01)
@@ -68,16 +69,20 @@ Olidacombe also has a [fork](https://github.com/olidacombe/Charybdis-PCB-thumbs)
 ### Flexible PCB Thumbs (for left)
 [Link to repo](https://github.com/Bastardkb/TBK-Mini-PCB-thumb-cluster/releases/tag/2.1)
 
-As I mentioned above, I ordered with 0.8mm thickness and did not change anything else (other than dying it to black at no extra cost on 0.8mm)
+As I mentioned above, I think I ordered with 0.6mm thickness and did not change anything else.
 
 
 ### Flexible PCB for the plate (3x6)
 [Link to repo](https://github.com/Bastardkb/TBK-Mini-PCB-plate/releases/tag/2.21)
 
-Again, I ordered with 0.8mm thickness and dyed it black
+Again, I ordered with 0.8mm thickness. Others dyed the boards black. I didn't think it would be that big of a deal. I was wrong. It wouldn't be a big deal if I was building one of the full size Charybdis. However, in the future I will probably re-order these with the boards dyed black so that they are less obvious. That is annoying since I had to order several of these already. I have enough to build 5 complete sets. Oops.
 
 ### 3D Prints
-A good friend and a colleague of mine [pbacterio](https://github.com/pbacterio) assisted me with 3D prints. I will add the link of each part  have 3D printed for a 3x6 build. This is different from the official README, as it does not use bearings for trackball and uses ceramic bearing balls. Some of the designs require the 3D model to be mirrored, I will link my mirrored files in this repository (Please refer to [Disclaimer](#disclaimer)).
+I printed everything for this build on my BambuLab P1S. I used Matte PLA for the blue and the orange and regular PLA for the black. I will add the link of each part have 3D printed for a 3x6 build.
+
+I followed the BKB instructions for settings for my printer. That said, I don't know that it was completely necessary.
+
+This is different from the official README, as it does not use bearings for trackball and uses ceramic bearing balls. Some of the designs require the 3D model to be mirrored, I will link my mirrored files in this repository (Please refer to [Disclaimer](#disclaimer)).
 
 - [Right case 3MF](https://github.com/Bastardkb/Charybdis/blob/2dad0ca/files/3x6%20mini/CMini_v1_v11.3mf), [STEP file](https://github.com/Bastardkb/Charybdis/blob/9afdbc9/files/3x6%20mini/CMini_v1_v11.step)
 - [Left case STL](./3d-prints/case_v3_v29_mirrorred.stl)
@@ -89,16 +94,18 @@ A good friend and a colleague of mine [pbacterio](https://github.com/pbacterio) 
 - [Tent Left STL (Optional)](https://github.com/Bastardkb/Charybdis/blob/4924527/files/3x6%20mini/tent_v2_v57.3mf)
 - [Tent Right STL (Optional)](./3d-prints/tent_v2_v57_mirrorred.stl)
 - [Sensor Cover](https://github.com/Bastardkb/Charybdis/blob/9130a58/files/sensor_cover_v51.stl)
+- [Travel Case](https://makerworld.com/en/models/1007550-charybdis-mini-travel-case)
 
 #### Tips after build
-- I personally find tents too high could not find a good position to make use of them.
 - I would like to replace plates with metal ones to add more weight, and also less flexibility as ribbon wires add pressure.
+- I added magnetic rings to the bottom of the plates so that I can tent th eboards with phone stands from Amazon.
+
 ### Required Components
 In this section, I will go through each component I have bought, and also give example links. As of writing, I locate in Netherlands, therefore I tried to source some of the parts across European countries. 
 
 | Name                         | Count | Link                                                                                                                         |
 |------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------|
-| Trackball                    | 1     | [Perixx Europe](https://eu.perixx.com/collections/accessory/products/18010)                                                  |
+| Trackball                    | 1     | I stole the ball from my MX Ergo                      |
 | nice!nano microcontroller    | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/nice-nano)                                             |
 | (optional) mill max sockets  | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/mill-max-low-profile-sockets?variant=31945995845709)   |
 | SOD123 Diodes                | 41    | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/smd-diodes)                                            |
@@ -116,38 +123,28 @@ In this section, I will go through each component I have bought, and also give e
 | JST plug 2-pin               | 2     | [Aliexpress](https://www.aliexpress.com/item/1005006115217679.html)                                                          |
 
 
-#### Notes: Flexstrip Jumper Cables (Ribbon cables)
-BastardKb docs mention you require 30 wire ribbon cables, but its not specifically mentioned what type or length is required. From the link I sent above, I bought a 24 Pin 82MM Length and 12 Pin 70MM Length just to make sure.
+#### After Build Notes:
+##### Ribbon Cables
+BastardKb docs mention you require 30 wire ribbon cables, but its not specifically mentioned what type or length is required. From the link I sent above, I bought a 24 Pin 82MM Length and 12 Pin 70MM Length just to make sure. Frankly for future builds I need to measure these out much better. If they were shorter and more direct, then the internals of the case would be much cleaner. 
 
-**After build**: 70mm length was not enough for thumb and sensor, and for 82mm one I ran into issues where cable snapped in 2 different occassions. I ended up using AWG28 cable to solder sensor! While its harder to solder as its very flexible, its much easier to handle if something goes wrong.
-
-#### Notes: Batteries
+##### Batteries and JST Direction
 One important part here is the battery. If you order a battery from Aliexpress to Europe, the order will be shipped with freight, meaning it will take ~2 months to arrive. Due to this reason, if you reside within EU, I would recommend to source a battery of your choice within EU. What needs to be considered before ordering any battery is to ensure that it is:
 - 3.7V
 - More than 80mAh
 - If you want to squeeze the battery between nice!nano and and the holder PCB, then you need to be careful of its size. At [42keebs.eu](https://42keebs.eu/shop/parts/lithium-polymer-battery/?attribute_size=301230%20(80%20mAh)), it states that you can fit `350926`, `301230`, `401030` underneath the nice!nano microcontroller.
 - Again, if you would like to fit a battery underneath nice!nano, you may want to buy [Mill Max Low Profile Sockets with Headers](https://splitkb.com/collections/keyboard-parts/products/mill-max-low-profile-sockets?variant=47060695646555) In order to create the gap in between.
 
-For this build, I used a JST plug so I can take out batteries without the need of desoldering.
+The JST sockets to connect the batteries ended up being a giant PITA. I ended up not using them. Instead, I soldered the battery wire to the shield such that the JST plug to connect to the battery itself sits inside of the case and then then wires can be routed as needed. I'm not sure what would be cleaner/better, but this worked for now.
 
-**After build**: Somehow batteries I ordered from Aliexpress came much faster! Another thing is I did not get Mill Max Low Profile Sockets with Headers, but with pins (accidentally) therefore I was unable to fit the batteries beneath nice!nano.
+##### Nice!Nano Direction
+Make sure you pay attention to which side of the Nice!Nano you are soldering the headers onto. That cost me a good penny by soldering up both sides of one board before I realized that I had messed up.
 
-### Helper Tools
+##### On/Off Switch
+Also, the on/off switches I ordered are vertical from the shield they mount to. I wish I had sourced some that would sit on the shield so that the switch stuff off to the side. That would make it easier to operate the switches. 
 
-As I have never built any keyboard before, and technically its my first DIY electronics project, I had to source all parts I needed. So I got:
+##### Switch Soldering
+Soldering the switches directly to the boards was not terribly difficult, but some of them did require an extra set of hands to help bend the board into the place while I tacked the switches on. Thankfully, thus far it would seem that all of our solder connections are solid.
 
-- Solder Iron: Its strongly recommended to get a good quality solder iron where you can change the temperature. From my research I have found that Hakko solder irons are overwhelmingly popular, however they are expensive. If you are not planning to build keyboards for a living, you can cut some costs by a cheaper alternative. I myself bought a [GALLUNOPTIMAL GOSprint150](https://www.amazon.nl/dp/B091J6TB43).
-- Solder: There are two types of solder that can be used, leaded and lead-free. While leaded solder melts easier and its easier to desolder, lead itself is toxic, therefore its important not to inhale it. You can put a fan in front of you and have good ventilation and possibly wear a mask. Lead-free solder is a safer choice, but it melts harder. Make sure to wash your hands after you are done!
-    - **After build**: Desoldering was painful with lead free solder
-- Solder wick: Its a type of solder remover, can be handy during incidents
-    - **After build**: Adding flux to board helped a lot when I wanted to use solder wick
-- Solder brass: If solder tin gets stuck on the tip of your iron, this is your go to.
-- Pliers: You will need them to cut flexstrip ribbon cables.
-- Torx screw drivers: You need M3 and M4 screw drivers. You already may have one at home.
-- Tweezers: You are going to need them to hold pieces together, and also deal with small parts such as SOD123 diodes. 
-- Desoldering Pump: Can be handy in case of accidents.
-- Solder flux: Optional, solder tins usually have tin inside nowadays, however it may be handy to have one.
-- Solder Station silicon: Optional, to make sure not to damage the surface you are working on.
 
 ## Step 2: Assembly
 Most of the steps are similar to building a Charybdis Nano. I will try to explain what I have done differently.
@@ -165,28 +162,35 @@ Most of the steps are similar to building a Charybdis Nano. I will try to explai
     - **Important** If you run into issues with wiring and in need to do desoldering, make sure to take out the nice!nano first!
 1. Try connecting battery and see if nice!nano works
 1. Install ribbon cables (including sensor board): [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/07ribbon_cables.html)
-    - Overall I had a negative experience with ribbon cables in general. It got snapped twice, and its very painful to desolder. For soldering sensor I used AWG28 cables after needing to desolder twice. In the process I believe I killed my nice!nano after applying too much heat on nice!nano holder PCB.
-    - Make sure to cut off extending parts of the cables after soldering to keep the PCBs flat it will make installing switches much easier.
-1. Power it on, grab a tweezer and check if each switch and sensor is working, if all works perfect!
-    - You can use your finger and see if sensor works correctly. If not you may have issues with wiring (I did this step 3 times unfortunately)
+    - I tried to pay attention to how BKB shows the ribbon cables being angled through the PCB. However, it would appear that almost all of them should have been angled the other direction.
+    - I actually did this after I soldered the switches on. That was a mistake because I could have fixed some issues with the way in which the ribbon cables are tucked into the case.
 1. Install and solder switches
     - I watched BastardKB build videos on Youtube for this part!
 1. Install sensor board
-    - During sensor assembly, I initially did not understand BTU prints were supposed to be installed angled, and needs to go all in. This is important otherwise ball will stay too high and sensor will not be able to read it
+    - During sensor assembly, I initially did not understand BTU prints were supposed to be installed angled, and needs to go all in. This is important otherwise ball will stay too high and sensor will not be able to read it. The bearings are press fit, so you can just mash them in.
 
 ## Step 3: Software
-As of writing, I have zero knowledge of ZMK. ~~I have forked [EIGA's config repo](https://github.com/erenatas/zmk-config)~~, created a Github Actions which built the images required for the keyboard. Connecting nice!nano for the first time is its reset mode, all you need to do is to drag and drop built image, which will flash itself. No need to change names or anything. Right hand is the main controller which you can connect to it via bluetooth and left hand automatically is connected to right hand.
+Connecting nice!nano for the first time is its reset mode, all you need to do is to drag and drop built image, which will flash itself. No need to change names or anything. Right hand is the main controller which you can connect to it via bluetooth and left hand automatically is connected to right hand.
 
-**07/04/2024**: You can find my zmk config here: [https://github.com/erenatas/zmk-config-charybdis-mini-wireless](https://github.com/erenatas/zmk-config-charybdis-mini-wireless), Added scroll support via forking [@grassfedreeve](https://github.com/grassfedreeve)'s config and adapted it to 3x6 mini. 
+When I first tried to set up the Prospector I managed to brick the board by deleting all of the files off the board to try to flash it. It would appear that was unnecessary and I will have to work on how to fix the issue (**10/19/2025**)
+
+The software for the wireless version of the Charybis is getting a lot of ongoing development within the community. I, being relatively dumb when it comes to ZMK (and QMK for that matter), have had to rely heavily on the work of others.
+
+My goal is to be able to edit the keymap/configuration of the keyboard using [ZMK Studio](https://zmk.studio/).
+
+[Here is a repo](https://github.com/apetrovic6/zmk-charybdis) that uses Studio with a micro (so one less column than mine here). 
+
+Similarly, [here is another repo](https://github.com/gukas/zmk-config-charybdis-4x6-prospector) that sets up a wireless 4x6 version (so the full sized version) with a prospector dongle.
+
+This [repo](https://github.com/moverisJustin/charybdis-wireless-mini-zmk-firmware) presents an interesting approach to helping setup all of the necessary steps. It includes Github Actions to generate the necessary .uf2 files. You can do it with or without a dongle through this repo. However, the approach used in this repo makes it hard to translate the keymaps from other repo examples. It also does not allow you to use existing keymap editors like [this one] (https://nickcoutsos.github.io/keymap-editor/). Notably, I have not attempted to use this repo with Studio, so that could be a path forward.
+
+You can find the zmk config from Erenatas (whose build guide I followed) here: [https://github.com/erenatas/zmk-config-charybdis-mini-wireless](https://github.com/erenatas/zmk-config-charybdis-mini-wireless), He added scroll support via forking [@grassfedreeve](https://github.com/grassfedreeve)'s config and adapted it to 3x6 mini. 
 
 # Thanks
-I would like to thank and give my gratitude to following people that helped to make this project into a reality. I believe you have ignited a DIY flame within me!
+I would like to thank several specific folks who helped me make this dream keyboard a reality!
 - [EIGA](https://www.youtube.com/watch?v=Mks7QDxFreY) with his Youtube.
 - [BastardKB](http://bastardkb.com/)
 - [VOID](https://github.com/victorlucachi)
 - [olidacombe](https://github.com/olidacombe)
-- My dear friend and colleague [pbacterio](https://github.com/pbacterio)
-- Sigvah who became my build buddy
-- My wife for her support!
+- My brother for his help teaching me to solder and letting me take up space in his office while I finished this build.
 
-And finally thank you for all the supporters in BastardKB Discord channel. You have an amazing community!
