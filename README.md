@@ -178,6 +178,8 @@ The software for the wireless version of the Charybis is getting a lot of ongoin
 
 My goal is to be able to edit the keymap/configuration of the keyboard using [ZMK Studio](https://zmk.studio/).
 
+My repo for my firmware is [here](https://github.com/moverisJustin/charybdis-wireless-mini-zmk-firmware/tree/Cursor).
+
 [Here is a repo](https://github.com/apetrovic6/zmk-charybdis) that uses Studio with a micro (so one less column than mine here). 
 
 Similarly, [here is another repo](https://github.com/gukas/zmk-config-charybdis-4x6-prospector) that sets up a wireless 4x6 version (so the full sized version) with a prospector dongle.
